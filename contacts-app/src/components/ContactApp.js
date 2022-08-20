@@ -1,21 +1,21 @@
 import React from 'react';
 import ContactList from './ContactList';
-import { getData } from '../utils/data';
+import { getContacts } from '../utils/data';
 import ContactInput from './ContactInput';
 
 class ContactApp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      contacts: getData(),
-    }
+      contacts: getContacts(),
+    };
 
     this.onDeleteHandler = this.onDeleteHandler.bind(this);
     this.onAddContactHandler = this.onAddContactHandler.bind(this);
   }
 
   onDeleteHandler(id) {
-    const contacts = this.state.contacts.filter(contact => contact.id !== id);
+    const contacts = this.state.contacts.filter((contact) => contact.id !== id);
     this.setState({ contacts });
   }
 
@@ -29,9 +29,9 @@ class ContactApp extends React.Component {
             name,
             tag,
             imageUrl: '/images/default.jpg',
-          }
-        ]
-      }
+          },
+        ],
+      };
     });
   }
 
