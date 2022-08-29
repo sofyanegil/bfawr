@@ -9,7 +9,7 @@ let notes = [
   {
     id: 'notes-2',
     title: 'Functional Component',
-    body: 'Functional component merupakan React component yang dibuat menggunakan fungsi JavaScript. Agar fungsi JavaScript dapat disebut component ia harus mengembalikan React element dan dipanggil layaknya React component.',
+    body: '<i>Functional</i> component merupakan React component yang dibuat menggunakan fungsi JavaScript. Agar fungsi JavaScript dapat disebut component ia harus mengembalikan React element dan dipanggil layaknya React component.',
     createdAt: '2022-04-14T04:27:34.572Z',
     archived: false,
   },
@@ -41,6 +41,13 @@ let notes = [
     createdAt: '2022-04-14T04:27:34.572Z',
     archived: false,
   },
+  {
+    id: 'notes-7',
+    title: 'Notes Archive',
+    body: 'Notes Archive Adalah notes yang diarsipkan.',
+    createdAt: '2022-04-14T04:27:34.572Z',
+    archived: true,
+  },
 ];
 
 function getAllNotes() {
@@ -63,9 +70,16 @@ function getArchivedNotes() {
 }
 
 function addNote({ title, body }) {
-  notes = [...notes, {
-    id: `notes-${+new Date()}`, title: title || '(untitled)', body, createdAt: new Date().toISOString(), archived: false,
-  }];
+  notes = [
+    ...notes,
+    {
+      id: `notes-${+new Date()}`,
+      title: title || '(untitled)',
+      body,
+      createdAt: new Date().toISOString(),
+      archived: false,
+    },
+  ];
 }
 
 function deleteNote(id) {
@@ -104,14 +118,4 @@ function editNote({ id, title, body }) {
   });
 }
 
-export {
-  getAllNotes,
-  getActiveNotes,
-  getArchivedNotes,
-  deleteNote,
-  editNote,
-  getNote,
-  archiveNote,
-  unarchiveNote,
-  addNote,
-};
+export { getAllNotes, getActiveNotes, getArchivedNotes, deleteNote, editNote, getNote, archiveNote, unarchiveNote, addNote };
